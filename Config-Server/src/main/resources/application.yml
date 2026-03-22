@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: config-server
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/vaibhavg805/shopzone-microservice-config
+          username: vaibhavg805
+          password: ${GITHUB_TOKEN}
+          default-label: main
+
+server:
+  port: 8746
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+
+
