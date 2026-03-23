@@ -19,7 +19,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/product-image")
+@RequestMapping("/products/product-image")
 @RequiredArgsConstructor
 public class ProductImageController {
 

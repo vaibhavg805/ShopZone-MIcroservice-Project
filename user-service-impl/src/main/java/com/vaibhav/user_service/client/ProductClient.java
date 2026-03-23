@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name = "product-service")
 public interface ProductClient {
     // call product protected APIS
-    @PostMapping("/api/products/test")
+    @PostMapping("/products/test")
     String testApi(@RequestBody String data);
 }

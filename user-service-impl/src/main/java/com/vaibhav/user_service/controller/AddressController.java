@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+//@RequestMapping("/api")
+@RequestMapping("/user/address")
 public class AddressController {
 
     private AddressService addressService;

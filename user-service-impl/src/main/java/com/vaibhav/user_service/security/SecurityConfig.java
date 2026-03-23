@@ -53,13 +53,13 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
             return httpSecurity.csrf(csrf -> csrf.disable())
                     .authorizeHttpRequests(auth -> auth
-                            .requestMatchers("/api/auth/register","/api/auth/login").permitAll()
-                            .requestMatchers("/api/auth/register/seller").permitAll()
-                            .requestMatchers("/api/auth/register/admin").hasRole("ADMIN")
-                            .requestMatchers("/api/auth/refresh").permitAll()
+                            .requestMatchers("/user/authentication/auth/register","/user/authentication/auth/login").permitAll()
+                            .requestMatchers("/user/authentication/auth/register/seller").permitAll()
+                            .requestMatchers("/user/authentication/auth/register/admin").hasRole("ADMIN")
+                            .requestMatchers("/user/authentication/auth/refresh").permitAll()
                             .requestMatchers("/user/reset-password","/user/forgot-password").permitAll()
                             .requestMatchers("/user/**").authenticated()
-                            .requestMatchers(("/api/users/address")).authenticated()
+                            .requestMatchers(("/user/address/users/address")).authenticated()
                             .anyRequest().authenticated()
                     )
                     .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
