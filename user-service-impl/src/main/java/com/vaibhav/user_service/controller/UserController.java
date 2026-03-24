@@ -1,5 +1,6 @@
 package com.vaibhav.user_service.controller;
 
+import com.vaibhav.user_service.client.dto.ProductResponseDto;
 import com.vaibhav.user_service.dto.ChangePassword;
 import com.vaibhav.user_service.dto.ErrorResponse;
 import com.vaibhav.user_service.dto.ForgotRequest;
@@ -11,6 +12,8 @@ import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -73,6 +76,12 @@ public class UserController {
     @GetMapping("/call-product")
     public ResponseEntity<String> callProduct() {
         return ResponseEntity.ok(userService.callProductService());
+    }
+
+    @GetMapping("/getAllProducts")
+    public ResponseEntity<List<ProductResponseDto>> getProducts() {
+        List<ProductResponseDto> products = userService.getAllProducts();
+        return ResponseEntity.ok(products);
     }
 
 }

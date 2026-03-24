@@ -60,6 +60,7 @@ public class SecurityConfig {
                             .requestMatchers("/user/reset-password","/user/forgot-password").permitAll()
                             .requestMatchers("/user/**").authenticated()
                             .requestMatchers(("/user/address/users/address")).authenticated()
+                            .requestMatchers("/actuator/**").permitAll()
                             .anyRequest().authenticated()
                     )
                     .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

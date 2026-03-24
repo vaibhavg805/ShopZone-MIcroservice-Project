@@ -222,6 +222,24 @@ public class ProductServiceImpl implements ProductService {
      */
     @Override
     public List<ProductResponseDto> getAllProducts() {
-        return List.of();
+        List<Product> product = productRepository.findAll();
+         return product.stream().map(prd -> {
+                ProductResponseDto dto = new ProductResponseDto();
+                dto.setId(prd.getId());
+                dto.setName(prd.getName());
+                dto.setDescription(prd.getDescription());
+                dto.setCategoryId(prd.getCategory() != null ? prd.getCategory().getId() : null);
+                dto.setBrandId(prd.getBrand() != null ? prd.getBrand().getId() : null);
+                dto.setBasePrice(prd.getBasePrice());
+                dto.setDiscountPercentage(prd.getDiscountPercentage());
+                dto.setFinalPrice(prd.getFinalPrice());
+                dto.setSku(prd.getSku());
+                dto.setIsActive(prd.getIsActive());
+                dto.setSpecifications(prd.getSpecifications());
+                dto.setAverageRating(prd.getAverageRating());
+                dto.setReviewCount(prd.getReviewCount());
+                return dto;
+            }).toList();
+
     }
 }
