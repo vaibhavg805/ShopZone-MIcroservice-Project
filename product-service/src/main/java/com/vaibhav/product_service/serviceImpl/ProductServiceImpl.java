@@ -221,7 +221,7 @@ public class ProductServiceImpl implements ProductService {
      * @return
      */
     @Override
-    public List<ProductResponseDto> getAllProducts() {
+    public List<ProductResponseDto> getAllProducts() throws InterruptedException{
         List<Product> product = productRepository.findAll();
          return product.stream().map(prd -> {
                 ProductResponseDto dto = new ProductResponseDto();

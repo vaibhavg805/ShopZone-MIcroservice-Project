@@ -36,5 +36,5 @@ public interface ProductService {
 
         List<ProductResponseDto> getActiveProducts();
 
-        List<ProductResponseDto> getAllProducts();
+        List<ProductResponseDto> getAllProducts() throws InterruptedException;
 }

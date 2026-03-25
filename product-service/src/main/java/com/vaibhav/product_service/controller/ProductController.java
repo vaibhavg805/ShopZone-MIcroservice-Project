@@ -116,7 +116,7 @@ public class ProductController {
 
     // Get all products (admin view)
     @GetMapping
-    public ResponseEntity<List<ProductResponseDto>> getAllProducts() {
+    public ResponseEntity<List<ProductResponseDto>> getAllProducts() throws InterruptedException {
         List<ProductResponseDto> products = productService.getAllProducts();
         return ResponseEntity.ok(products);
     }
