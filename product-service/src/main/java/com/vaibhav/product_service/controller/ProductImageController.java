@@ -43,7 +43,7 @@ public class ProductImageController {
             }
 
             return ResponseEntity.ok()
-                    .header(HttpHeaders.CONTENT_DISPOSITION, "inline") // <- force render
+                    .header(HttpHeaders.CONTENT_DISPOSITION, "inline")
                     .contentType(MediaType.parseMediaType(contentType))
                     .body(resource);
         } catch(IOException e){
